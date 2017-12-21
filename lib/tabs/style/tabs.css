@@ -25,7 +25,8 @@ ul {
     .tabs-tab:last-child {
       margin-right: 0; }
     .tabs-tab-active {
-      border-bottom: 2px solid #05a4e5; }
+      border-bottom: 2px solid #05a4e5;
+      color: #05a4e5; }
   .tabs-content {
     display: flex;
     flex-flow: row nowrap;
