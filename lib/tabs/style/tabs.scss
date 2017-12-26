@@ -1,15 +1,6 @@
 $class-prefix: "tabs";
 
-*{
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-}
-ul{
-    list-style: none;
-}
-.clearfix{
+.clearfix {
     &:before,
     &:after{
         content: '';
@@ -18,43 +9,168 @@ ul{
     }
 }
 
-.#{$class-prefix}{
+/*默认情况下*/
+.#{$class-prefix} {
     overflow: hidden;
 
-    &-bar{
+    &-bar {
         margin-bottom: 20px;
         border-bottom: 1px solid #d9d9d9;
+
+        /*position=left情况下*/
+        .tabs-left & {
+            float: left;
+            border: 0;
+            border-right: 1px solid #d9d9d9;
+            margin: 0;
+        }
+        /*position=right情况下*/
+        .tabs-right & {
+            float: right;
+            border: 0;
+            border-left: 1px solid #d9d9d9;
+            margin: 0;
+        }
+        /*position=bottom情况下*/
+        .tabs-bottom & {
+            margin: 0;
+            margin-top: 20px;
+        }
     }
-    &-nav{
+    &-nav {
         @extend .clearfix
     }
-    &-tab{
+    &-tab {
         float: left;
+        position: relative;
         padding: 8px 20px;
         margin-right: 24px;
         cursor: pointer;
 
-        &:last-child{
+        &:last-child {
             margin-right: 0;
         }
 
-        &-active{
-            border-bottom: 2px solid #05a4e5;
+        /*position=left || right 情况下*/
+        .tabs-left &,
+        .tabs-right & {
+            float: none;
+            display: block;
+            margin: 0;
+            margin-bottom: 24px;
+        }
+        /*position=left || right 情况下*/
+        .tabs-left &{
+            text-align: right;
+        }
+
+        /*type=card情况下*/
+        .#{$class-prefix}-card & {
+            border: 1px solid #d9d9d9;
+            border-bottom: 0;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            margin-right: 2px;
+            background: #fafafa;
+        }
+        /*type=card,position=left情况下*/
+        .#{$class-prefix}-card.tabs-left & {
+            margin-bottom: 10px;
+            border: 1px solid #d9d9d9;
+            border-right: 0;
+            margin-right: 0;
+            border-radius: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        /*type=card,position=right情况下*/
+        .#{$class-prefix}-card.tabs-right & {
+            margin-bottom: 10px;
+            border: 1px solid #d9d9d9;
+            border-right: 0;
+            margin-right: 0;
+            border-radius: 0;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+
+        &-active {
             color: #05a4e5;
+            /*type=card情况下*/
+            .#{$class-prefix}-card & {
+                background: #fff;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: #05a4e5;
+
+                /*position=left情况下*/
+                .tabs-left & {
+                    top: 0;
+                    bottom: 0;
+                    right: -2px;
+                    left: auto;
+                    height: 100%;
+                    width: 3px;
+                }
+                /*position=right情况下*/
+                .tabs-right & {
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 3px;
+                }
+                /*type=card情况下*/
+                .#{$class-prefix}-card & {
+                    background: #fff;
+                }
+            }
         }
     }
-    &-content{
+    &-content {
         display: flex;
         flex-flow: row nowrap;
         width: 100%;
+
+        /*position=left || right情况下*/
+        .tabs-left &,
+        .tabs-right & {
+            display: block;
+            width: auto;
+            overflow: hidden;
+        }
     }
-    &-tabpane{
+    &-tabpane {
         width: 100%;
         opacity: 0;
         flex-shrink: 0;
+        /*position=left情况下*/
+        .tabs-left & {
+            display: none;
+            padding-left: 24px;
+        }
+        /*position=right情况下*/
+        .tabs-right & {
+            display: none;
+            padding-right: 24px;
+        }
 
-        &-active{
+        &-active {
             opacity: 1;
+
+            /*position=left || right情况下*/
+            .tabs-left &,
+            .tabs-right & {
+                display: block;
+            }
         }
     }
 }

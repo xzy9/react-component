@@ -1,41 +1,130 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 14px; }
-
-ul {
-  list-style: none; }
-
+@charset "UTF-8";
 .clearfix:before, .tabs-nav:before, .clearfix:after, .tabs-nav:after {
   content: '';
   display: table;
   clear: both; }
 
+/*默认情况下*/
 .tabs {
   overflow: hidden; }
   .tabs-bar {
     margin-bottom: 20px;
-    border-bottom: 1px solid #d9d9d9; }
+    border-bottom: 1px solid #d9d9d9;
+    /*position=left情况下*/
+    /*position=right情况下*/
+    /*position=bottom情况下*/ }
+    .tabs-left .tabs-bar {
+      float: left;
+      border: 0;
+      border-right: 1px solid #d9d9d9;
+      margin: 0; }
+    .tabs-right .tabs-bar {
+      float: right;
+      border: 0;
+      border-left: 1px solid #d9d9d9;
+      margin: 0; }
+    .tabs-bottom .tabs-bar {
+      margin: 0;
+      margin-top: 20px; }
   .tabs-tab {
     float: left;
+    position: relative;
     padding: 8px 20px;
     margin-right: 24px;
-    cursor: pointer; }
+    cursor: pointer;
+    /*position=left || right 情况下*/
+    /*position=left || right 情况下*/
+    /*type=card情况下*/
+    /*type=card,position=left情况下*/
+    /*type=card,position=right情况下*/ }
     .tabs-tab:last-child {
       margin-right: 0; }
+    .tabs-left .tabs-tab, .tabs-right .tabs-tab {
+      float: none;
+      display: block;
+      margin: 0;
+      margin-bottom: 24px; }
+    .tabs-left .tabs-tab {
+      text-align: right; }
+    .tabs-card .tabs-tab {
+      border: 1px solid #d9d9d9;
+      border-bottom: 0;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      margin-right: 2px;
+      background: #fafafa; }
+    .tabs-card.tabs-left .tabs-tab {
+      margin-bottom: 10px;
+      border: 1px solid #d9d9d9;
+      border-right: 0;
+      margin-right: 0;
+      border-radius: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px; }
+    .tabs-card.tabs-right .tabs-tab {
+      margin-bottom: 10px;
+      border: 1px solid #d9d9d9;
+      border-right: 0;
+      margin-right: 0;
+      border-radius: 0;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px; }
     .tabs-tab-active {
-      border-bottom: 2px solid #05a4e5;
-      color: #05a4e5; }
+      color: #05a4e5;
+      /*type=card情况下*/ }
+      .tabs-card .tabs-tab-active {
+        background: #fff; }
+      .tabs-tab-active:before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #05a4e5;
+        /*position=left情况下*/
+        /*position=right情况下*/
+        /*type=card情况下*/ }
+        .tabs-left .tabs-tab-active:before {
+          top: 0;
+          bottom: 0;
+          right: -2px;
+          left: auto;
+          height: 100%;
+          width: 3px; }
+        .tabs-right .tabs-tab-active:before {
+          top: 0;
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          width: 3px; }
+        .tabs-card .tabs-tab-active:before {
+          background: #fff; }
   .tabs-content {
     display: flex;
     flex-flow: row nowrap;
-    width: 100%; }
+    width: 100%;
+    /*position=left || right情况下*/ }
+    .tabs-left .tabs-content, .tabs-right .tabs-content {
+      display: block;
+      width: auto;
+      overflow: hidden; }
   .tabs-tabpane {
     width: 100%;
     opacity: 0;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    /*position=left情况下*/
+    /*position=right情况下*/ }
+    .tabs-left .tabs-tabpane {
+      display: none;
+      padding-left: 24px; }
+    .tabs-right .tabs-tabpane {
+      display: none;
+      padding-right: 24px; }
     .tabs-tabpane-active {
-      opacity: 1; }
+      opacity: 1;
+      /*position=left || right情况下*/ }
+      .tabs-left .tabs-tabpane-active, .tabs-right .tabs-tabpane-active {
+        display: block; }
 
 /*# sourceMappingURL=tabs.css.map */
