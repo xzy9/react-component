@@ -94,7 +94,6 @@ $class-prefix: "tabs";
             border-bottom-right-radius: 4px;
         }
 
-
         &-active {
             color: #05a4e5;
             /*type=card情况下*/
@@ -133,6 +132,10 @@ $class-prefix: "tabs";
                     background: #fff;
                 }
             }
+        }
+        &-disabled{
+            pointer-events: none;
+            color: rgba(0, 0, 0, 0.3);
         }
     }
     &-content {

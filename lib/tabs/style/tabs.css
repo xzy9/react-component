@@ -100,6 +100,9 @@
           width: 3px; }
         .tabs-card .tabs-tab-active:before {
           background: #fff; }
+    .tabs-tab-disabled {
+      pointer-events: none;
+      color: rgba(0, 0, 0, 0.3); }
   .tabs-content {
     display: flex;
     flex-flow: row nowrap;

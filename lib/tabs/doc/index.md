@@ -16,3 +16,4 @@
 | --- | --- | --- | --- |
 | key | 对应 activeKey | string | 无 |
 | tab | 选项卡头显示文字 | string / ReactNode | 无 |
+| disabled | 选项卡禁用 | boolean | false |
