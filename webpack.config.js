@@ -15,9 +15,9 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.(js|jsx)?$/,
       include: [
-        path.resolve(__dirname, 'components'),
+        path.resolve(__dirname, 'lib'),
         path.resolve(__dirname, 'demo'),
       ],
       loaders: ['react-hot', 'babel'],
@@ -25,13 +25,15 @@ module.exports = {
     {
         test: /\.scss$/,
         include: [
-            path.resolve(__dirname, 'style'),
+            path.resolve(__dirname, 'lib'),
+            path.resolve(__dirname, 'demo'),
         ],
         loader: sassLoader
     },
     {
         test: /\.css$/,
         include: [
+            path.resolve(__dirname, 'lib'),
             path.resolve(__dirname, 'demo'),
         ],
         loader: 'style!css'
@@ -40,6 +42,9 @@ module.exports = {
   resolve: {
     alias: {
       'react': path.join(__dirname, 'node_modules', 'react'),
+      'Tabs': path.join(__dirname, 'lib', 'tabs/Index'),
+      'TabPane': path.join(__dirname, 'lib', 'tabs/TabPane'),
+      'Layout': path.join(__dirname, 'lib', 'layout/Index'),
     },
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
   },

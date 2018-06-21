@@ -1,0 +1,58 @@
+@import "../../style/default";
+
+$class-prefix: "layout";
+
+.clearfix {
+    &:before,
+    &:after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+/*默认情况下*/
+.#{$class-prefix} {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: auto;
+    &-has-sider {
+        flex-direction: row;
+    }
+
+    &-header,
+    &-footer {
+        flex: 0 0 auto;
+        height: 64px;
+        line-height: 64px;
+        background-color: $primary-1;
+    }
+    &-content {
+        flex: auto;
+    }
+    &-sider {
+        flex: 0 0 200px;
+        transition: all 0.2s;
+
+        &-light{
+            background-color: #fff;
+        }
+        &-dark{
+            background-color: #404040;
+            color: #fff;
+        }
+
+        &-has-trigger{
+            position: relative;
+        }
+        &-trigger{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            cursor: pointer;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+        }
+    }
+}

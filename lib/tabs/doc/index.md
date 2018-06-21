@@ -10,7 +10,7 @@
 | onChange | 切换面板的回调 | Function | 无 |
 | onTabClick | tab 被点击的回调 | Function | 无 |
 
-### Tabs.TabPane
+### Index.TabPane
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
